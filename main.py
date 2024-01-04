@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 
 import sys
+import matplotlib.pyplot as plt
+from collections import Counter
 
 # https://en.wikipedia.org/wiki/Kaprekar's_routine
 KAPREKAR = 6174
@@ -58,6 +60,11 @@ def main():
 		s = sum(all_steps)
 		print(f'sum: {s}')
 		print(f'average: {s / len(all_steps)}')
+		c = Counter(all_steps)
+		x = c.keys()
+		y = [c[key] for key in x]
+		plt.bar(x, y)
+		plt.show()
 
 if __name__ == '__main__':
 	main()
